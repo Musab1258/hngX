@@ -38,10 +38,12 @@ function jsFunctionalities() {
     displayDay();
 
     function displayTime() {
-        let presentTime = `${date.getUTCHours()}:${date.getUTCMinutes()}:${date.getUTCSeconds()}:${date.getUTCMilliseconds()}`;
+        let presentTime = `${date.getUTCHours() + 1}:${date.getUTCMinutes()}:${date.getUTCSeconds()}:${date.getUTCMilliseconds()}`;
 
         time.textContent = presentTime;
     }
 
-    displayTime();
+    setInterval(() =>  {
+        displayTime();
+    }, 1);
 }
