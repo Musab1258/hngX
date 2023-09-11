@@ -16,6 +16,7 @@ function jsFunctionalities() {
     let day = getDOM_elements("one", ".current_day");
         time = getDOM_elements("one", ".current_time");
 
+    
     date = new Date();
 
     function displayDay() {
@@ -38,7 +39,8 @@ function jsFunctionalities() {
     displayDay();
 
     function displayTime() {
-        let presentTime = `${date.getUTCHours() + 1}:${date.getUTCMinutes()}:${date.getUTCSeconds()}:${date.getUTCMilliseconds()}`;
+        anotherDate = new Date();
+        let presentTime = `${anotherDate.getUTCHours() + 1}:${anotherDate.getUTCMinutes()}:${anotherDate.getUTCSeconds()}:${anotherDate.getUTCMilliseconds()}`;
 
         time.textContent = presentTime;
     }
