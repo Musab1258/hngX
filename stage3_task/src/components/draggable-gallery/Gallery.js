@@ -5,8 +5,9 @@ import galleryList from "./data.js";
 import "./gallery.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingSpinner from "../loading-spinner/LoadingSpinner.js";
+import LogoutButton from "../auth/Logout.js";
 
-const Card = ({ src, title, id, index, moveImage }) => {
+const Card = ({ src, title, text, id, index, moveImage }) => {
   const ref = React.useRef(null);
 
   const [, drop] = useDrop({
@@ -62,6 +63,7 @@ const Card = ({ src, title, id, index, moveImage }) => {
   return (
     <div ref={ref} style={{ opacity }} className="card">
       <img src={src} alt={title} />
+      <p>{text}</p>
     </div>
   );
 };
@@ -88,6 +90,11 @@ const Gallery = () => {
   return (
     isAuthenticated && (
     <main>
+      <div>
+        <input type="text" placeholder="Search images by tags"/>
+        <button>Search</button>
+      </div>
+      <LogoutButton />
       {React.Children.toArray(
         images.map((image, index) => (
           <Card
@@ -96,6 +103,7 @@ const Gallery = () => {
             id={image.id}
             index={index}
             moveImage={moveImage}
+            text={image.tag}
           />
         ))
       )}
