@@ -24,13 +24,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      domain="https://localhost:3000/dashboard"
-      clientId="mrAWKAp2Yigvpx6DDzDgiswVTRMt1n1d"
+      //domain="stage3-task.us.auth0.com"
+      domain="localhost:3000/dashboard"
+      clientId="J2eJ2CZsaPZfeEIpcT4X5pZFlXILfTGn"
       authorizationParams={{
         redirect_uri: window.location.origin
       }}
     >
-      <App />
+      <RouterProvider router={router} />
     </Auth0Provider>
   </React.StrictMode>
 );
