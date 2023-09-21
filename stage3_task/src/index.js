@@ -5,8 +5,11 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Dashboard from './components/Dashboard';
 import ErrorPage from './components/error/ErrorPage';
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import Gallery from './components/draggable-gallery/Gallery';
+
 
 const router = createBrowserRouter([
   {
@@ -15,8 +18,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "dashboard",
-    element: <Dashboard />,
+    path: "gallery",
+    element: <Gallery />,
   },
 ])
 
@@ -24,14 +27,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Auth0Provider
-      //domain="stage3-task.us.auth0.com"
-      domain="localhost:3000/dashboard"
+      domain="stage3-task.us.auth0.com"
+      // domain="https://hng-x-n7vi.vercel.app/dashboard"
       clientId="J2eJ2CZsaPZfeEIpcT4X5pZFlXILfTGn"
       authorizationParams={{
-        redirect_uri: window.location.origin
+        redirect_uri: "http://localhost:3000/gallery"
       }}
     >
-      <RouterProvider router={router} />
+      <DndProvider backend={HTML5Backend}>
+        <RouterProvider router={router} />
+      </DndProvider>
     </Auth0Provider>
   </React.StrictMode>
 );
