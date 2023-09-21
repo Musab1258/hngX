@@ -3,6 +3,8 @@ import { useDrag, useDrop } from "react-dnd";
 
 import galleryList from "./data.js";
 import "./gallery.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import LoadingSpinner from "../loading-spinner/LoadingSpinner.js";
 
 const Card = ({ src, title, id, index, moveImage }) => {
   const ref = React.useRef(null);
@@ -76,7 +78,15 @@ const Gallery = () => {
       return clonedCards;
     });
   }, []);
+
+  const { isAuthenticated, isLoading } = useAuth0();
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
   return (
+    isAuthenticated && (
     <main>
       {React.Children.toArray(
         images.map((image, index) => (
@@ -90,6 +100,7 @@ const Gallery = () => {
         ))
       )}
     </main>
+    )  
   );
 };
 
