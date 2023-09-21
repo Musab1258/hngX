@@ -31,7 +31,7 @@ root.render(
       // domain="https://hng-x-n7vi.vercel.app/dashboard"
       clientId="J2eJ2CZsaPZfeEIpcT4X5pZFlXILfTGn"
       authorizationParams={{
-        redirect_uri: "http://localhost:3000/gallery"
+        redirect_uri: "https://hng-x-n7vi.vercel.app/gallery"
       }}
     >
       <DndProvider backend={HTML5Backend}>
