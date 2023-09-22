@@ -52,6 +52,12 @@ picture {
   margin-inline: auto;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5em 0;
+}
+
 main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));

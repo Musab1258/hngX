@@ -87,27 +87,48 @@ const Gallery = () => {
     return <LoadingSpinner />;
   }
 
+  const [ searchInput, setSearchInput ] = useState("");
+
+  const filter = () => {
+    if (searchInput) {
+      window.location.reload();
+      let filteredImages = images.filter((image) => images.includes(searchInput.toLowerCase()));
+      {filteredImages ? setImages(filteredImages) : setImages(images);
+    }
+  }
+
   return (
     isAuthenticated && (
-    <main>
-      <div>
-        <input type="text" placeholder="Search images by tags"/>
-        <button>Search</button>
-      </div>
-      <LogoutButton />
-      {React.Children.toArray(
-        images.map((image, index) => (
-          <Card
-            src={image.img}
-            title={image.title}
-            id={image.id}
-            index={index}
-            moveImage={moveImage}
-            text={image.tag}
-          />
-        ))
-      )}
-    </main>
+    <div>
+      <header>
+        <div className="flex gap-x-4">
+          <input 
+            type="text" 
+            placeholder="Search images by tags"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            />
+          <button className="py-4 px-8" onClick={filter}>Search</button>
+        </div>
+        <div>
+          <LogoutButton />
+        </div>
+      </header>
+      <main>
+        {React.Children.toArray(
+          images.map((image, index) => (
+            <Card
+              src={image.img}
+              title={image.title}
+              id={image.id}
+              index={index}
+              moveImage={moveImage}
+              text={image.tag}
+            />
+          ))
+        )}
+      </main>
+    </div>
     )  
   );
 };
