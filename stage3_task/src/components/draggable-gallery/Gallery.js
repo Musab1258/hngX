@@ -1,8 +1,8 @@
+import "./gallery.css";
 import React from "react";
 import { useDrag, useDrop } from "react-dnd";
 
 import galleryList from "./data.js";
-import "./gallery.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingSpinner from "../loading-spinner/LoadingSpinner.js";
 import LogoutButton from "../auth/Logout.js";
