@@ -131,6 +131,6 @@ const Gallery = () => {
     </div>
     )  
   );
-};
+}};
 
 export default Gallery;
