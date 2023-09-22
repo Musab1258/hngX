@@ -70,7 +70,7 @@ const Card = ({ src, title, text, id, index, moveImage }) => {
 
 const Gallery = () => {
   const [images, setImages] = useState(galleryList);
-  const [ searchInput, setSearchString ] = useState("");
+  const [ searchInput, setSearchInput ] = useState("");
 
   function handleSearch(e) {
 		const target = e.target;
