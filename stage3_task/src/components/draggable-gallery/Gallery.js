@@ -76,11 +76,15 @@ const Gallery = () => {
 		const target = e.target;
 		const searchValue = target?.value;
 		setSearchInput(searchValue);
-
 		
 		const result = images.filter((image) => image.tag.toLowerCase().includes(searchValue.toLowerCase()));
 
-		{ result ? setImages(result) : setImages(images)};
+		if (result) {
+      window.location.reload();  
+      setImages(result)
+    }  else {
+      setImages(images)
+    };
 	}
 
   const moveImage = React.useCallback((dragIndex, hoverIndex) => {
@@ -105,7 +109,7 @@ const Gallery = () => {
       <div className="flex flex-col md:flex-row md:justify-between">
       <div>
         <input type="text" placeholder="Search images by tags"/>
-        <button onClick={handleSearch} className="py-4 px-8 bg-[#912483]">Search</button>
+        <button onClick={handleSearch} className="py-2 px-8 bg-[#912483] border-2">Search</button>
       </div>
       <LogoutButton />
       </div>
