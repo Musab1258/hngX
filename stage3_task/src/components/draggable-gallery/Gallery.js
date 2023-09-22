@@ -1,5 +1,5 @@
 import "./gallery.css";
-import React from "react";
+import React, { useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
 import galleryList from "./data.js";
