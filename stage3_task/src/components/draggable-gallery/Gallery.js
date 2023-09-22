@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDrag, useDrop } from "react-dnd";
 
 import galleryList from "./data";
@@ -69,7 +69,19 @@ const Card = ({ src, title, text, id, index, moveImage }) => {
 };
 
 const Gallery = () => {
-  const [images, setImages] = React.useState(galleryList);
+  const [images, setImages] = useState(galleryList);
+  const [ searchInput, setSearchString ] = useState("");
+
+  function handleSearch(e) {
+		const target = e.target;
+		const searchValue = target?.value;
+		setSearchInput(searchValue);
+
+		
+		const result = images.filter((image) => image.tag.toLowerCase().includes(searchValue.toLowerCase()));
+
+		{ result ? setImages(result) : setImages(images)};
+	}
 
   const moveImage = React.useCallback((dragIndex, hoverIndex) => {
     setImages((prevCards) => {
