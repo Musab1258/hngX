@@ -80,7 +80,8 @@ const Gallery = () => {
 		const result = images.filter((image) => image.tag.toLowerCase().includes(searchValue.toLowerCase()));
 
 		if (result) {
-        
+      alert("Here you go");
+      window.location.reload();
       setImages(result)
     }  else {
       setImages(images)
