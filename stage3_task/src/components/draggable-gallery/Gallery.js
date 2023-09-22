@@ -88,11 +88,12 @@ const Gallery = () => {
   }
 
   const [ searchInput, setSearchInput ] = useState("");
+  let search = searchInput
 
   const filter = () => {
-    if (searchInput) {
+    if (search) {
       window.location.reload();
-      let filteredImages = images.filter((image) => images.includes(searchInput.toLowerCase()));
+      let filteredImages = images.filter((image) => images.includes(search.toLowerCase()));
       {filteredImages ? setImages(filteredImages) : setImages(images);
     }
   }
