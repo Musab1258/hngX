@@ -102,7 +102,7 @@ const Gallery = () => {
   return (
     isAuthenticated && (
     <div className="m-auto bg-[#faecf8] text-black py-[5%] px-[5%] md:py-[10%]">
-      <div className="flex flex-col m-auto md:flex-row md:justify-between">
+      <div className="flex flex-col gap-y-4 m-auto md:flex-row md:justify-between">
       <div>
         <input 
           type="text" 
@@ -133,5 +133,4 @@ const Gallery = () => {
     )  
   );
 };
-
-export default Gallery;
+export default Gallery
