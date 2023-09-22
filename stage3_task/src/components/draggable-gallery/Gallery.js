@@ -101,11 +101,11 @@ const Gallery = () => {
 
   return (
     isAuthenticated && (
-    <div className="">
+    <div className="bg-[#faecf8]">
       <div className="flex flex-col md:flex-row md:justify-between">
       <div>
         <input type="text" placeholder="Search images by tags"/>
-        <button>Search</button>
+        <button onClick={handleSearch} className="py-4 px-8 bg-[#912483]">Search</button>
       </div>
       <LogoutButton />
       </div>
