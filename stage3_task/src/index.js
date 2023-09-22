@@ -28,7 +28,6 @@ root.render(
   <React.StrictMode>
     <Auth0Provider
       domain="stage3-task.us.auth0.com"
-      // domain="https://hng-x-n7vi.vercel.app/dashboard"
       clientId="J2eJ2CZsaPZfeEIpcT4X5pZFlXILfTGn"
       authorizationParams={{
         redirect_uri: "https://hng-x-n7vi.vercel.app/gallery"

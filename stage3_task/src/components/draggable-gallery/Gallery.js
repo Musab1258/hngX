@@ -1,8 +1,8 @@
-import "./gallery.css";
-import React, { useState } from "react";
+import React from "react";
 import { useDrag, useDrop } from "react-dnd";
 
-import galleryList from "./data.js";
+import galleryList from "./data";
+import "./gallery.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import LoadingSpinner from "../loading-spinner/LoadingSpinner.js";
 import LogoutButton from "../auth/Logout.js";
@@ -87,34 +87,16 @@ const Gallery = () => {
     return <LoadingSpinner />;
   }
 
-  const [ searchInput, setSearchInput ] = useState("");
-  let search = searchInput
-
-  const filter = () => {
-    if (search) {
-      window.location.reload();
-      let filteredImages = images.filter((image) => images.includes(search.toLowerCase()));
-      {filteredImages ? setImages(filteredImages) : setImages(images);
-    }
-  }
-
   return (
     isAuthenticated && (
-    <div>
-      <header>
-        <div className="flex gap-x-4">
-          <input 
-            type="text" 
-            placeholder="Search images by tags"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            />
-          <button className="py-4 px-8" onClick={filter}>Search</button>
-        </div>
-        <div>
-          <LogoutButton />
-        </div>
-      </header>
+    <div className="">
+      <div className="flex flex-col md:flex-row md:justify-between">
+      <div>
+        <input type="text" placeholder="Search images by tags"/>
+        <button>Search</button>
+      </div>
+      <LogoutButton />
+      </div>
       <main>
         {React.Children.toArray(
           images.map((image, index) => (
@@ -132,6 +114,6 @@ const Gallery = () => {
     </div>
     )  
   );
-}};
+};
 
 export default Gallery;
