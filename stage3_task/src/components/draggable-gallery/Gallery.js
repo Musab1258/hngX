@@ -72,17 +72,12 @@ const Gallery = () => {
   const [images, setImages] = useState(galleryList);
   const [ searchInput, setSearchInput ] = useState("");
 
-  function handleSearch(e) {
-		const target = e.target;
-		const searchValue = target?.value;
-		setSearchInput(searchValue);
-		
-		const result = images.filter((image) => image.tag.toLowerCase().includes(searchValue.toLowerCase()));
+  function handleSearch() {
+    console.log(searchInput);
+		const result = images.filter((image) => image.tag.toLowerCase().includes(searchInput.toLowerCase()));
 
 		if (result) {
-      alert("Here you go");
-      window.location.reload();
-      setImages(result)
+      setImages(result);
     }  else {
       setImages(images)
     };
@@ -106,10 +101,16 @@ const Gallery = () => {
 
   return (
     isAuthenticated && (
-    <div className="bg-[#faecf8]">
+    <div className="bg-[#faecf8] text-black py-[5%] px-[5%] md:py-[10%]">
       <div className="flex flex-col md:flex-row md:justify-between">
       <div>
-        <input type="text" placeholder="Search images by tags" className=""/>
+        <input 
+          type="text" 
+          placeholder="Search images by tags"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+          className="py-2 bg-white text-black"
+        />
         <button onClick={handleSearch} className="py-2 px-8 bg-[#912483] border-2">Search</button>
       </div>
       <LogoutButton />
