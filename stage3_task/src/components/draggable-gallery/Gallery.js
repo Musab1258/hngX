@@ -61,7 +61,7 @@ const Card = ({ src, title, text, id, index, moveImage }) => {
   drag(drop(ref));
 
   return (
-    <div ref={ref} style={{ opacity }} className="card rounded-md w-32 flex flex-col justify-center">
+    <div ref={ref} style={{ opacity }} className="card m-auto rounded-md w-52 flex flex-col justify-center items-center">
       <img src={src} alt={title} className="rounded-full" />
       <p>{text}</p>
     </div>
@@ -101,17 +101,17 @@ const Gallery = () => {
 
   return (
     isAuthenticated && (
-    <div className="bg-[#faecf8] text-black py-[5%] px-[5%] md:py-[10%]">
-      <div className="flex flex-col md:flex-row md:justify-between">
+    <div className="m-auto bg-[#faecf8] text-black py-[5%] px-[5%] md:py-[10%]">
+      <div className="flex flex-col m-auto md:flex-row md:justify-between">
       <div>
         <input 
           type="text" 
           placeholder="Search images by tags"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className="py-2 bg-white text-black"
+          className="py-2 px-4 mr-2 bg-white text-black rounded-lg"
         />
-        <button onClick={handleSearch} className="py-2 px-8 bg-[#912483] border-2">Search</button>
+        <button onClick={handleSearch} className="py-2 px-8 ml-2 bg-[#912483] border-2 rounded-lg">Search</button>
       </div>
       <LogoutButton />
       </div>
