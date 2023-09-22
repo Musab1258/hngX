@@ -80,7 +80,7 @@ const Gallery = () => {
 		const result = images.filter((image) => image.tag.toLowerCase().includes(searchValue.toLowerCase()));
 
 		if (result) {
-      window.location.reload();  
+        
       setImages(result)
     }  else {
       setImages(images)
@@ -108,7 +108,7 @@ const Gallery = () => {
     <div className="bg-[#faecf8]">
       <div className="flex flex-col md:flex-row md:justify-between">
       <div>
-        <input type="text" placeholder="Search images by tags"/>
+        <input type="text" placeholder="Search images by tags" className=""/>
         <button onClick={handleSearch} className="py-2 px-8 bg-[#912483] border-2">Search</button>
       </div>
       <LogoutButton />
