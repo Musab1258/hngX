@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="App h-[100vh] bg-black text-white">
       <div className='flex flex-col p-[5%] md:p[10%] justify-center gap-4'>
-        <h1>Fruit Gallery App</h1>
+        <h1 className='text-lg'>Fruit Gallery App</h1>
         <div>
-          <img src={Fruits} alt='The app screenshot' className="w-96 m-auto" />
+          <img src={Fruits} alt='The app screenshot' className="w-96 m-auto rounded-md" />
         </div>
         <div>This is an app that allows you to view the pictures of several fruits</div>
         <div>To login use the following email and password</div>

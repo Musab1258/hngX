@@ -61,8 +61,8 @@ const Card = ({ src, title, text, id, index, moveImage }) => {
   drag(drop(ref));
 
   return (
-    <div ref={ref} style={{ opacity }} className="card">
-      <img src={src} alt={title} />
+    <div ref={ref} style={{ opacity }} className="card rounded-md w-32 flex flex-col justify-center">
+      <img src={src} alt={title} className="rounded-full" />
       <p>{text}</p>
     </div>
   );
